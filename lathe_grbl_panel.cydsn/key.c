@@ -49,7 +49,7 @@ void key_init(){
 
 CY_ISR(ISR_KEY_Handler){
     flag.fast=Pin_Fast_Read()?0:1;
-    div_print('f',st_stop);
+//    div_print('f',st_stop);
 }
 
 CY_ISR(ISR_ADC_Handler){/* 0-156-261-350-450-550-650-750-850-950-1024 */
@@ -116,7 +116,7 @@ void lcd_row2(){
     LCD_Position(1u, 0u);//row, col
     sprintf(b+2,"%s     ",Pin_CCW_Read()?"Rev":"Frw");//"CCW":"ACW");
     if(rpm>61000 || rpm==0){
-        uint32 ang=ENC_ANG(QUAD_ReadCounter());
+        uint32 ang=ENC_ANG(0);//QUAD_ReadCounter());
         snprintf(b+7,12, "Ang %3u.%1.1u  ", (uint16)(ang/10), (uint16)(ang%10));
     }else{
         snprintf(b+7,12, "RPM  %5u  ", RPM_V(rpm));
@@ -243,13 +243,13 @@ void joy_scan(){
                             case st_accel:
                             case st_fast:
                             case st_run:
-                                div_print('n',st_decel);
+                                //div_print('n',st_decel);
                                 move.state=st_decel;
                                 break;
                             case st_end:
                             case st_wait:
-                                DIV_ClearInterrupt(DIV_INTR_MASK_TC|DIV_INTR_MASK_CC_MATCH);
-                                DIV_Stop();
+                                //DIV_ClearInterrupt(DIV_INTR_MASK_TC|DIV_INTR_MASK_CC_MATCH);
+                                //DIV_Stop();
                                 move.state=st_stop;
                                 STEP_OFF;
                                 break;

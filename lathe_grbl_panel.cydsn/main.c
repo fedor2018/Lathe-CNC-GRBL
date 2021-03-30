@@ -31,7 +31,7 @@ void init(){
     beep_init();
     LCD_Start();
     LCD_ClearDisplay();
-    move_init();
+//    move_init();
     key_init();
     CyGlobalIntEnable; /* Enable global interrupts. */
     LCD_Position(0u, 0u);//row, col
@@ -71,7 +71,7 @@ int main(void)
         CyDelay(50);
         if(flag.rpm++>20){//1s/50ms
             rpm=0;
-            flag.rpm=0;
+            //flag.rpm=0;
         }
     }
 }

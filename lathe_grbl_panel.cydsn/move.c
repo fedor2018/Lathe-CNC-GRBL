@@ -22,7 +22,7 @@ int32 volatile Motor_Z_Pos=0;
 extern MODE_INFO mode;
 extern FLAG_INFO flag;
 extern MOVE_INFO move;
-
+/*
 void inline div_print(char s, uint8 st){
 #ifdef DIV_DEBUG
     if(st!=move.state){
@@ -108,7 +108,7 @@ CY_ISR(ISR_DIV_Handler){
             if(Motor_Z_Pos>=move.lim_right){
                 move.state=st_end;
             }else{
-                if(Motor_Z_Pos>=move.acc_right/*(move.lim_right-move.ks_acc)*/){
+                if(Motor_Z_Pos>=move.acc_right){//(move.lim_right-move.ks_acc)/
                     div_print('+', st_decel);
                     move.state=st_decel;
                 }
@@ -120,7 +120,7 @@ CY_ISR(ISR_DIV_Handler){
             if(Motor_Z_Pos<=move.lim_left){
                 move.state=st_end;
             }else{
-                if(Motor_Z_Pos<=move.acc_left/*(move.lim_left+move.ks_acc)*/){
+                if(Motor_Z_Pos<=move.acc_left){//(move.lim_left+move.ks_acc)/
                     div_print('-',st_decel);
                     move.state=st_decel;
                 }
@@ -153,7 +153,7 @@ CY_ISR(ISR_DIV_Handler){
             }
             break;
         case st_decel:
-            if(move.ks_tmp < (/*move.ks_div+*/move.ks_acc)){///ks_div+accel
+            if(move.ks_tmp < (move.ks_acc)){//move.ks_div+////ks_div+accel
                 move.ks_tmp+=move.ks_inc;
                 DIV_WriteCounter(move.ks_tmp-1);
                 break;
@@ -174,4 +174,5 @@ CY_ISR(ISR_DIV_Handler){
     STEP_ON;//div==0
     DIV_Start();
 }
+*/
 /* [] END OF FILE */
