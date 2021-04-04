@@ -13,20 +13,16 @@
 #include "beep.h"
 #include "move.h"
 #include "key.h"
+#include "lcd.h"
 
-char buf[80];//21
+//char buf[80];//21
 #define START_MSG0 "  Lathe on PSOC "
 extern FLAG_INFO flag;
 extern uint16 volatile rpm;
 
-void clear_row(uint8 r){
-    char b[21];
-    space_str(b);
-    LCD_Position(r, 0u);//row, col
-    LCD_PrintString(b);    
-}
-
 void init(){
+    char b[21];
+    version(b);
     UART_Start();
     beep_init();
     LCD_Start();
@@ -37,18 +33,17 @@ void init(){
     LCD_Position(0u, 0u);//row, col
     LCD_PrintString(START_MSG0);
     LCD_Position(2u, 0u);//row, col
-    version(buf);
-    LCD_PrintString(buf);
+    LCD_PrintString(b);
     LEFT_ON;
     RIGHT_ON;
     beep(100);
     CyDelay(500);
     LEFT_OFF;
     RIGHT_OFF;
-    UART_UartPutString(START_MSG0);
+/*    UART_UartPutString(START_MSG0);
     UART_UartPutCRLF(' ');
-    UART_UartPutString(buf);
-    UART_UartPutCRLF(' ');
+    UART_UartPutString(b);
+    UART_UartPutCRLF(' ');*/
     CyDelay(500);
 }
 

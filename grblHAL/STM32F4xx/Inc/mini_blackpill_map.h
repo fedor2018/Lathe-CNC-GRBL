@@ -32,6 +32,7 @@
 #define CNC_BLACKPILL 1
 #define EEPROM_ENABLE   0 // Disabled for now for BlackPill - pin differences... // Only change if BoosterPack does not have EEPROM mounted
 #define SPINDLE_SYNC_ENABLE
+#define USB_SERIAL_CDC     0
 
 // Define step pulse output pins.
 #define STEP_PORT       GPIOA

@@ -26,6 +26,7 @@
       <Data key="d566069d-8a81-43cb-ac24-3bd6b94299d7/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_LCDPort" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Pin_Dir" />
       <Data key="e0669757-f75b-4fab-bd3e-48635a1de5e7" value="Pin_Step" />
+      <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
     </Group>
   </Group>
   <Group key="FlashSecurity">
@@ -1326,6 +1327,11 @@
     <Group key="e0669757-f75b-4fab-bd3e-48635a1de5e7">
       <Group key="0">
         <Data key="Port Format" value="3,1" />
+      </Group>
+    </Group>
+    <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
+      <Group key="0">
+        <Data key="Port Format" value="3,7" />
       </Group>
     </Group>
   </Group>
