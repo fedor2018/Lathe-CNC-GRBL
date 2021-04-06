@@ -9,15 +9,11 @@
  *
  * ========================================
 */
+
 #include "main.h"
 
-#define BEEP_DELAY_ms(m)  (1*m)//1kHz->1ms
-#define BEEP_ON     Pin_Buzzer_Write(0);Pin_Led_Int_Write(1);
-#define BEEP_OFF    Pin_Buzzer_Write(1);Pin_Led_Int_Write(0);
+#define GRBL_INIT "$10=0 G21" //wpos only, mm
 
-void beep_init();
-void beep(uint16 delay);
-void read_buz(char *s);
-CY_ISR_PROTO(ISR_BUZ_Handler);
+void grbl_scan(char* cmd);
 
 /* [] END OF FILE */

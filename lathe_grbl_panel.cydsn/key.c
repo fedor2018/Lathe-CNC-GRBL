@@ -19,6 +19,25 @@ uint16 joy=0;
 extern int32 volatile Motor_Z_Pos;
 extern uint16 volatile rpm;
 
+/*
+$J=G21G91X-0.1F1000
+$J=G21G91X0.1F1000
+G4P0 - stop streaming
+$X - Kill alarm lock
+G95 - mm/r
+
+*/
+ uint8 Feeds[]={3,6,9,12,15,18,21};//mm*100
+ uint16 Thread[]={25,30,35,40,50,60,70,75,80,100,125,150,175,200};//,250,300,400,500,600};//mm*100
+//int Thread_rpm[]={1200,100};
+ uint8 Thread_tpi[]={80,72,64,60,56,48,44,40,36,32,28,27,26,24,22,20,19,18,16,14,12};//,10,9,8,7,6,5,4};//inch*1
+//int Tpi_rpm[]={1200,100};
+
+#define NELEMS(x)  sizeof(x) / sizeof(x[0])
+#define Thread_idx NELEMS(Thread)
+#define Feed_idx NELEMS(Feeds)
+#define Tpi_idx NELEMS(Thread_tpi)
+
 
 MODE_INFO mode;
 FLAG_INFO flag;
@@ -31,7 +50,6 @@ void key_init(){
     mode.Tpi=0;
     flag.joy=Key_None;
     flag.rpm=0;
-    lcd_row1();
 
     ADC_Start();
     ISR_ADC_StartEx(ISR_ADC_Handler);
@@ -63,12 +81,12 @@ void joy_scan(){
                 flag.fast=0;
                 switch(joy){
                     case Joy_Left:
-                        Pin_Dir_Write(DIR_LEFT);
-                        move_en();
+                        //Pin_Dir_Write(DIR_LEFT);
+                        //move_en();
                         break;
                     case Joy_Right:
-                        Pin_Dir_Write(DIR_RIGHT);
-                        move_en();
+                        //Pin_Dir_Write(DIR_RIGHT);
+                        //move_en();
                         break;
                     case Key_Down:
                         MenuKeyDownPressed();
@@ -89,7 +107,7 @@ void joy_scan(){
             }else{//move->end
                  switch(joy){
                     case Key_None:
-                        switch(move.state){
+/*                        switch(move.state){
                             case st_accel:
                             case st_fast:
                             case st_run:
@@ -101,12 +119,12 @@ void joy_scan(){
                                 //DIV_ClearInterrupt(DIV_INTR_MASK_TC|DIV_INTR_MASK_CC_MATCH);
                                 //DIV_Stop();
                                 move.state=st_stop;
-                                STEP_OFF;
+                                //STEP_OFF;
                                 break;
                             case st_decel:
                             default:
                                 break;
-                        }
+                        }*/
                         break;
                 }
            }

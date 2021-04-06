@@ -9,28 +9,32 @@
  *
  * ========================================
 */
+#ifndef MAIN_H
+#define MAIN_H
+
 #include "project.h"
 #include <stdio.h>
 
 #define VER "0.1b"
-void version(char *sversion);
+#define START_MSG0 " PSOC + GRBL "
+
 void div_print(char s, uint8 st);
 
 #define byte uint8
 typedef unsigned char bool;
 #define false 0
 #define true (!false)
-#define NELEMS(x)  (sizeof(x) / sizeof((x)[0]))
 #define space_str(s)    memset(s,' ',sizeof(s))
+
 
 void move_init();
 /**/
-#define LEFT_ON         Pin_Left_Write(1)
-#define LEFT_OFF        Pin_Left_Write(0)
-#define LEFT_IS_ON      (Pin_Left_Read()!=0)
-#define RIGHT_ON        Pin_Right_Write(1)
-#define RIGHT_OFF       Pin_Right_Write(0)
-#define RIGHT_IS_ON     (Pin_Right_Read()!=0)
+#define LEFT_ON         Pin_Led_Left_Write(1)
+#define LEFT_OFF        Pin_Led_Left_Write(0)
+#define LEFT_IS_ON      (Pin_Led_Left_Read()!=0)
+#define RIGHT_ON        Pin_Led_Right_Write(1)
+#define RIGHT_OFF       Pin_Led_Right_Write(0)
+#define RIGHT_IS_ON     (Pin_Led_Right_Read()!=0)
 #define STEP_ON         (Pin_Step_Write(0))
 #define STEP_OFF        (Pin_Step_Write(1))
 #define STEP_IS_ON      (Pin_Step_Read()==0)
@@ -61,5 +65,7 @@ void move_init();
 #define THREAD_TPI_STEP_I(tpi) 	(uint16_t)(TICK_PER_STEP_MM/(25.4/tpi))
 #define THREAD_TPI_STEP_D(tpi) 	(uint16_t)(((float)(TICK_PER_STEP_MM/(25.4/tpi))-THREAD_TPI_STEP_I(tpi))*10000.0)
 #define ENC_ANG(pos) ((uint32)(pos*3600)/QUAD_MAX)
+
+#endif
 
 /* [] END OF FILE */

@@ -13,10 +13,10 @@
 
 void clear_row(uint8 r);
 void lcd_mode();
-void lcd_rpm();
-void lcd_msg();
-void lcd_pos();
+void lcd_rpm(char* rpm);
+void lcd_msg(char* msg);
+void lcd_pos(char* pos);
 void lcd_limit();
-void version(char* sversion);
+void start_msg();
 
 /* [] END OF FILE */

@@ -20,45 +20,46 @@
   <block name="Pin_SW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_CCW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_Zero" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clk_Buz" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clk_Buz" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ISR_BUZ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="UART_1" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
+  <block name="UART_DEBUG" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="TX_UART_1_TX_DATA" address="0x400F0040" bitWidth="8" desc="TX Data Register" hidden="false" />
-    <register name="TX_UART_1_TX_STATUS" address="0x400F0060" bitWidth="8" desc="TX status register" hidden="false">
-      <field name="UART_1_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
+    <register name="TX_UART_DEBUG_TX_DATA" address="0x400F0040" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="TX_UART_DEBUG_TX_STATUS" address="0x400F0060" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="UART_DEBUG_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_DEBUG_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_DEBUG_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_DEBUG_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
     </register>
   </block>
-  <block name="Pin_Dir" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Tx_Debug" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LCD" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="LCDPort" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   </block>
   <block name="BOOT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Pin_Left" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Led_Left" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UART" BASE="0x0" SIZE="0x0" desc="Serial Communication Block" visible="true" hidden="false">
-    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="sclk_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="mosi_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="rx_wake_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="SCBCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="select_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="rx_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="miso_m_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="mosi_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="select_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCBCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="rx_wake_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="rx_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="cts_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="Device_VM4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="rx" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="tx" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Device_VM4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="tx" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="SCB_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="or_sclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <register name="_CTRL" address="0x40060000" bitWidth="32" desc="Generic control register" hidden="false">
       <field name="OVS" from="3" to="0" access="RW" resetVal="" desc="Serial interface bit period oversampling factor expressed in lP clock cycles. Used for SPI and UART functionality. OVS + 1 IP clock cycles constitute a single serial interface clock/bit cycle." hidden="false" />
@@ -772,11 +773,12 @@
     </register>
   </block>
   <block name="Pin_Fast" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ISR_KEY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Led_Right" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ISR_ADC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="EEPROM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clk_KEY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Pin_Right" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Pin_Led" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Dir" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ISR_KEY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Led_Int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="KEY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clk_KEY" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>
