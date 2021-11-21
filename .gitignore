@@ -63,3 +63,4 @@ Generated_Source
 Export
 .metadata/.lock
 .metadata/.log4j.xml
+.settings
