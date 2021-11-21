@@ -61,7 +61,7 @@ Generated_Source
 *_timing.html
 *.rpt
 Export
-.metadata/.lock
-.metadata/.log4j.xml
-.settings/*
+*/.metadata/.lock
+*/.metadata/.log4j.xml
+*/.settings/*
 
